@@ -13,5 +13,20 @@
     "roomId": 1,
     "price": 12600,
     "status": "new"
+  },
+  {
+    "id": 2,
+    "from": "2023-11-15",
+    "to": "2023-11-22",
+    "people": 2,
+    "catering": "Snídani",
+    "pets": false,
+    "childBed": false,
+    "wheelchairAccess": false,
+    "email": "",
+    "telephone": "34242",
+    "roomId": 1,
+    "price": 7700,
+    "status": "new"
   }
 ]

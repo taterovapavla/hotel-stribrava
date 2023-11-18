@@ -27,3 +27,55 @@ body {
     padding-left: 2rem;
   }
 }
+
+section {
+  padding: 2rem 0;
+}
+
+section.dark {
+  background-color: #131E2A;
+  color: white;
+}
+
+section.dark a {
+  color: white;
+}
+
+section.dark *::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+section.dark *::-webkit-scrollbar-track {
+  background: black;
+  border-radius: 0.5rem;
+}
+
+section.dark *::-webkit-scrollbar-button {
+  display: none;
+}
+
+section.dark *::-webkit-scrollbar-thumb {
+  background: #131E2A;
+  border-radius: 0.5rem;
+}
+
+section.dark *::-webkit-scrollbar-thumb:hover {
+  background: #131E2A;
+}
+
+section.light {
+  background-color: #e8e9f3;
+}
+
+.columns-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media screen and (min-width: 740px) {
+  .columns-2 {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}

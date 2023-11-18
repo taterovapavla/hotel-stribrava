@@ -1,27 +1,5 @@
-section {
-  padding: 2rem 0;
-}
-
-section.light {
-  background-color: #e8e9f3;
-}
-
 img {
   width: 100%;
   height: auto;
   border-radius: 0.5rem;
 }
-
-.columns-2 {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-}
-
-@media screen and (min-width: 740px) {
-  .columns-2 {
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-  }
-}
-

@@ -1,5 +1,6 @@
 import './style.css';
 import { useState, useEffect } from 'react';
+import { Order } from '../../components/Order';
 
 export const AdminPage = () => {
   const [orders, setOrders] = useState();
@@ -12,9 +13,15 @@ export const AdminPage = () => {
     getOrders();
   }, [])
   return (
-    <div className="container">
-      Admin
-      {orders ? JSON.stringify(orders) : null}
-    </div>
+    <>
+      <section className="dark">
+        <div className="container">
+          <h2>Poptávky</h2>
+          <div className="cards-row">
+            {Array.isArray(orders) ? orders.map((order) => (<Order key={order.id} order={order} />)) : null}
+          </div>
+        </div>
+      </section>
+    </>
   );
 };
