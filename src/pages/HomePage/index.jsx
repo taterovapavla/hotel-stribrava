@@ -4,7 +4,6 @@ export const HomePage = () => {
   return (
     <div className="container">
       <header>
-        <div className="logo" />
         <h1>React webová aplikace</h1>
       </header>
       <main>

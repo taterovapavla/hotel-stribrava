@@ -1,0 +1,17 @@
+[
+    {
+        "id": 0,
+        "roomId": 3,
+        "from": "16.05.2024",
+        "to": "20.05.2024",
+        "people": 3,
+        "catering": "snídani",
+        "pets": false,
+        "childBed": true,
+        "wheelchairAccess": false,
+        "email": "a.kmov@gmail.com",
+        "telephone": "723987654",
+        "price": 22000,
+        "status": "new"
+    }
+]
