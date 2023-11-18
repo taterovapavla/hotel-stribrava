@@ -17,7 +17,7 @@ export const AdminPage = () => {
       <section className="dark">
         <div className="container">
           <h2>Poptávky</h2>
-          <div className="cards-row">
+          <div className="orders-list">
             {Array.isArray(orders) ? orders.map((order) => (<Order key={order.id} order={order} />)) : null}
           </div>
         </div>
