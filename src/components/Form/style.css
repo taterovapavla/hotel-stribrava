@@ -51,3 +51,8 @@ button.wide {
   width: 100%;
   padding: 1rem;
 }
+.form__price {
+  text-align: right;
+  font-weight: 600;
+  font-size: 1.2em;
+}

@@ -4,7 +4,7 @@ import { useState } from 'react'
 const initialData = {
   "from": "",
   "to": "",
-  "people": "",
+  "people": 2,
   "catering": 0,
   "pets": false,
   "childBed": false,
@@ -38,6 +38,14 @@ const cateringPrices = [
 
 export const Form = ({room}) => {
   const [formData, setFormData] = useState({...initialData});
+  const calcPrice = () => {
+    const perDay = room.price;
+    const pricePet = formData.pets ? Math.ceil(perDay / 4) : 0;
+    const priceChildBed = formData.childBed ? Math.ceil(perDay / 2) : 0;
+    const cateringPrice = cateringPrices.find(p => p.label === formData.catering)?.price || 0;
+    return ((perDay + cateringPrice) * formData.people + pricePet + priceChildBed) * 1;
+  }
+  const price = calcPrice();
   const changeData = (part) => setFormData({...formData, ...part});
   const onSubmit = (e) => {
     e.preventDefault();
@@ -68,8 +76,10 @@ export const Form = ({room}) => {
               id="input-people"
               className="field-input"
               type="number"
+              min={1}
+              max={20}
               value={formData.people}
-              onChange={e => changeData({people: e.target.value})}
+              onChange={e => changeData({people: Number(e.target.value)})}
             />
             <label htmlFor="select-catering" className="field-label">Stravování:</label>
             <select
@@ -86,7 +96,7 @@ export const Form = ({room}) => {
               className="field-input"
               type="checkbox"
               value={formData.pets}
-              onChange={e => changeData({pets: e.target.value})}
+              onChange={e => changeData({pets: e.target.checked})}
             />
             <label htmlFor="input-childBed" className="field-label">Přistýlka pro dítě:</label>
             <input
@@ -94,7 +104,7 @@ export const Form = ({room}) => {
               className="field-input"
               type="checkbox"
               value={formData.childBed}
-              onChange={e => changeData({childBed: e.target.value})}
+              onChange={e => changeData({childBed: e.target.checked})}
             />
             <label htmlFor="input-wheelchairAccess" className="field-label">Bezbariérový přístup:</label>
             <input
@@ -102,7 +112,7 @@ export const Form = ({room}) => {
               className="field-input"
               type="checkbox"
               value={formData.wheelchairAccess}
-              onChange={e => changeData({wheelchairAccess: e.target.value})}
+              onChange={e => changeData({wheelchairAccess: e.target.checked})}
             />
             <label htmlFor="input-email" className="field-label">E-mail:</label>
             <input
@@ -121,6 +131,7 @@ export const Form = ({room}) => {
               onChange={e => changeData({telephone: e.target.value})}
             />
           </div>
+          <p className='form__price'>Celková cena za pobyt: {price} Kč</p>
           <button type="submit" className="wide">Odeslat poptávku</button>
         </form>
   )
