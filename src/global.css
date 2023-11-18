@@ -5,11 +5,25 @@
 }
 
 html {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
 }
 
 .container {
-  max-width: 26rem;
+  max-width: 960px;
   margin-right: auto;
   margin-left: auto;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+@media screen and (min-width: 740px) {
+  .container {
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
 }

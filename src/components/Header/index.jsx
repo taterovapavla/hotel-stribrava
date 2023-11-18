@@ -1,3 +1,5 @@
+import './style.css'
+
 export const Header = () => {
   return (
     <div class="banner">

@@ -1,3 +1,6 @@
+import { Room } from '../Room'
+import './style.css'
+
 export const RoomList = () => {
   return (
     <section class="dark">
@@ -7,11 +10,7 @@ export const RoomList = () => {
         Quas odio quidem, enim nihil unde quia temporibus vitae in ab.
       </p>
       <div class="cards-row">
-        <div class="card">
-          <img class="card__image" src="img/image1.svg" />
-          <div class="card__title">Card 1</div>
-          <div class="card__body">Sunt natus</div>
-        </div>
+        <Room />
       </div>
     </div>
   </section>

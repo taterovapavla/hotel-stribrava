@@ -1,0 +1,42 @@
+section {
+  padding: 2rem 0;
+}
+
+section.dark {
+  background-color: gray;
+  color: white;
+}
+
+section.dark a {
+  color: white;
+}
+
+section.dark *::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+section.dark *::-webkit-scrollbar-track {
+  background: black;
+  border-radius: 0.5rem;
+}
+
+section.dark *::-webkit-scrollbar-button {
+  display: none;
+}
+
+section.dark *::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 0.5rem;
+}
+
+section.dark *::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.cards-row {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 1rem 0;
+}
