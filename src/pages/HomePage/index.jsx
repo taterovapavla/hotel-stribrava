@@ -22,7 +22,7 @@ export const HomePage = () => {
   return (
     <>
       <Header />
-      <RoomList rooms={rooms} />
+      <RoomList rooms={rooms} onSelect={setSelectedRoom} />
       {selectedRoom ? <RoomSelected room={selectedRoom} /> : null}
       <Footer />
     </>
