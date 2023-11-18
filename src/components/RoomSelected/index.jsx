@@ -1,19 +1,27 @@
-import { Form } from "react-router-dom"
+import { Form } from '../Form'
 import './style.css'
+
+const room = {
+  "id": 1,
+  "name": "Úkryt",
+  "description": "Strohý avšak pohodlný pokoj ideální pro hosty, kteří chtějí maximálně ušetřit a hledají cenově dostupné ubytování bez ztráty základního komfortu. Vhodné pro všechny, kdo chtějí v našem hotelu rychle přečkat nepřízeň počasí a vydat se rychle zase na cestu ať už pěší nebo po řece.",
+  "price": 450,
+  "image": "http://localhost:4000/assets/rooms/room01.jpg"
+}
 
 export const RoomSelected = () => {
   return (
     <section className="light">
     <div className="container">
-      <h2>Heading</h2>
+      <h2>{room.name}</h2>
       <div className="columns-2">
         <div className="column">
-          <img src="img/image1.svg" />
+          <img src={room.image} />
           <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque accusantium, dolor quisquam doloremque quod nobis temporibus ducimus sapiente consectetur distinctio assumenda, nisi suscipit saepe. Vero.
+            {room.description}
           </p>
         </div>
-        <Form />
+        <Form room={room} />
       </div>
     </div>
   </section>
