@@ -7,12 +7,14 @@ import { useState, useEffect } from 'react'
 
 
 export const HomePage = () => {
-  const [rooms, setRooms] = useState()
+  const [rooms, setRooms] = useState();
+  const [selectedRoom, setSelectedRoom] = useState();
   useEffect(() => {
     const fetchRooms = async () => {
       const response = await fetch('http://localhost:4000/api/rooms') 
       const data = await response.json()
       setRooms(data.result)
+      setSelectedRoom(data.result[0]);
     }
     fetchRooms()
   }, [])
@@ -21,7 +23,7 @@ export const HomePage = () => {
     <>
       <Header />
       <RoomList rooms={rooms} />
-      <RoomSelected />
+      {selectedRoom ? <RoomSelected room={selectedRoom} /> : null}
       <Footer />
     </>
   );
