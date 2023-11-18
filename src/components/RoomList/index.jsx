@@ -3,13 +3,13 @@ import './style.css'
 
 export const RoomList = () => {
   return (
-    <section class="dark">
-    <div class="container">
+    <section className="dark">
+    <div className="container">
       <h2>Heading</h2>
       <p>
         Quas odio quidem, enim nihil unde quia temporibus vitae in ab.
       </p>
-      <div class="cards-row">
+      <div className="cards-row">
         <Room />
       </div>
     </div>
