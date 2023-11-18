@@ -6,7 +6,7 @@ const initialData = {
   "from": "",
   "to": "",
   "people": 2,
-  "catering": 0,
+  "catering": "Žádné",
   "pets": false,
   "childBed": false,
   "wheelchairAccess": false,
@@ -141,7 +141,7 @@ export const Form = ({room}) => {
             />
           </div>
           <p className='form__price'>Celková cena za pobyt: {price} Kč</p>
-          <button type="submit" className="wide">Odeslat poptávku</button>
+          <button type="submit" className="wide" disabled={!(formData.email || formData.telephone)}>Odeslat poptávku</button>
         </form>
   )
 }
