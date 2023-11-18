@@ -1,5 +1,6 @@
 import './style.css'
 import { useState } from 'react'
+import dayjs from 'dayjs';
 
 const initialData = {
   "from": "",
@@ -39,11 +40,12 @@ const cateringPrices = [
 export const Form = ({room}) => {
   const [formData, setFormData] = useState({...initialData});
   const calcPrice = () => {
+    const days = dayjs(formData.to).diff(dayjs(formData.from), 'day') || 1;
     const perDay = room.price;
     const pricePet = formData.pets ? Math.ceil(perDay / 4) : 0;
     const priceChildBed = formData.childBed ? Math.ceil(perDay / 2) : 0;
     const cateringPrice = cateringPrices.find(p => p.label === formData.catering)?.price || 0;
-    return ((perDay + cateringPrice) * formData.people + pricePet + priceChildBed) * 1;
+    return ((perDay + cateringPrice) * formData.people + pricePet + priceChildBed) * days;
   }
   const price = calcPrice();
   const changeData = (part) => setFormData({...formData, ...part});
