@@ -49,9 +49,16 @@ export const Form = ({room}) => {
   }
   const price = calcPrice();
   const changeData = (part) => setFormData({...formData, ...part});
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    console.log({...formData, roomId: room.id});
+    const data = {...formData, roomId: room.id, price: price, status: 'new'};
+    fetch('http://localhost:4000/api/orders', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
   }
   return (
     <form onSubmit={onSubmit}>
