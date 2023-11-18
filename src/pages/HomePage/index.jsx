@@ -8,13 +8,13 @@ import { useState, useEffect } from 'react'
 
 export const HomePage = () => {
   const [rooms, setRooms] = useState();
-  const [selectedRoom, setSelectedRoom] = useState();
+  const [selectedRoomId, setSelectedRoomId] = useState();
+  const selectedRoom = (rooms || []).find(r => r.id === selectedRoomId);
   useEffect(() => {
     const fetchRooms = async () => {
       const response = await fetch('http://localhost:4000/api/rooms') 
       const data = await response.json()
       setRooms(data.result)
-      setSelectedRoom(data.result[0]);
     }
     fetchRooms()
   }, [])
@@ -22,7 +22,7 @@ export const HomePage = () => {
   return (
     <>
       <Header />
-      <RoomList rooms={rooms} onSelect={setSelectedRoom} />
+      <RoomList rooms={rooms} onSelect={setSelectedRoomId} />
       {selectedRoom ? <RoomSelected room={selectedRoom} /> : null}
       <Footer />
     </>

@@ -16,7 +16,7 @@ export const RoomList = ({rooms, onSelect}) => {
         id={room.id}
          key={room.id}
          title={room.name}
-         body={room.description}
+         price={room.price}
          image={room.image}
          onSelect={onSelect}
          />)) : null}
