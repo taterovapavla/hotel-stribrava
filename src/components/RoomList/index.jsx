@@ -1,7 +1,8 @@
 import { Room } from '../Room'
 import './style.css'
 
-export const RoomList = () => {
+export const RoomList = ({rooms}) => {
+  console.log(rooms)
   return (
     <section className="dark">
     <div className="container">
@@ -10,7 +11,7 @@ export const RoomList = () => {
         Quas odio quidem, enim nihil unde quia temporibus vitae in ab.
       </p>
       <div className="cards-row">
-        <Room />
+        {Array.isArray(rooms) ? rooms.map((room) => (<Room key={room.id}/>)) : null}
       </div>
     </div>
   </section>
